@@ -214,8 +214,11 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  if (a < b) {
+    return `${isStartIncluded ? '[' : '('}${a}, ${b}${isEndIncluded ? ']' : ')'}`;
+  }
+  return `${isStartIncluded ? '[' : '('}${b}, ${a}${isEndIncluded ? ']' : ')'}`;
 }
 
 
@@ -383,8 +386,8 @@ function isBracketsBalanced(str) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
@@ -487,6 +490,34 @@ function getMatrixProduct(m1, m2) {
 function evaluateTicTacToePosition(/* position */) {
   throw new Error('Not implemented');
 }
+// function evaluateTicTacToePosition(position) {
+//   for (let i = 0; i < position.length; i += 1) {
+//     const rowResult = position[i][0];
+//     if (position[i].every((x) => x === rowResult) && rowResult !== undefined) {
+//       return rowResult;
+//     }
+//     const data = [];
+//     for (let j = 0; j < position.length; j += 1) {
+//       data.push(position[j][i]);
+//     }
+//     const colResult = data[0];
+//     if (data.every((x) => x === colResult) && colResult !== undefined) {
+//       return colResult;
+//     }
+//   }
+
+//   const diagonal1 = [position[0][0], position[1][1], position[2][2]];
+//   const diagonal2 = [position[0][2], position[1][1], position[2][0]];
+//   const diagonal1Result = diagonal1[0];
+//   const diagonal2Result = diagonal2[0];
+//   if (diagonal1.every((x) => x === diagonal1Result) && diagonal1Result !== undefined) {
+//     return diagonal1Result;
+//   }
+//   if (diagonal2.every((x) => x === diagonal2Result) && diagonal2Result !== undefined) {
+//     return diagonal2Result;
+//   }
+//   return undefined;
+// }
 
 
 module.exports = {
